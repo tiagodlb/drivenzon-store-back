@@ -1,0 +1,31 @@
+{
+  "name": "drivenzon-back",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Drivenzon back-end ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "e-commerce",
+    "store"
+  ],
+  "author": "Tiago and Heitor",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "mongodb": "^4.5.0",
+    "uuid": "^8.3.2"
+  }
+}
