@@ -1,15 +1,11 @@
-import joi from "joi";
 import bcrypt from "bcrypt";
 import { v4 as uuid } from "uuid";
 
 import db from "./../db.js";
+import { signUpSchema } from "../schemas/signUpSchema.js";
+import { signInSchema } from "../schemas/signInShema.js";
 
 export async function signIn(req, res) {
-  //validar
-  const signInSchema = joi.object({
-    email: joi.string().email().required(),
-    password: joi.string().required(),
-  });
   const { error } = signInSchema.validate(req.body, { abortEarly: false });
   if (error) {
     return res.status(422).send(error.details.map((detail) => detail.message));
@@ -33,14 +29,6 @@ export async function signIn(req, res) {
 }
 
 export async function signUp(req, res) {
-  //validar
-  const signUpSchema = joi.object({
-    name: joi.string().required(),
-    email: joi.string().email().required(),
-    password: joi.string().required(),
-    confirmPassword: joi.ref("password"),
-  });
-
   const { error } = signUpSchema.validate(req.body, { abortEarly: false });
   if (error) {
     return res.status(422).send(error.details.map((detail) => detail.message));
